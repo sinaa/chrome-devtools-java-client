@@ -26,9 +26,18 @@ jobs:
       - name: Package
         run: make build-all-modules
 
-      - name: Changes
+      - name: Undo skip tests
+        run: git checkout Makefile
+
+      - name: List Changes
         run: git diff --name-status
 
-      - name: List
-        run: find .
+      - uses: gr2m/create-or-update-pull-request-action@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          branch: "protocol-update"
+          commit-message: "Update interface to reflect latest Devtools protocol"
+          title: Devtools protocol update
+          body: "Automatic protocol update to latest version"
 
