@@ -21,6 +21,8 @@ package com.github.kklisura.cdt.protocol.events.page;
  */
 
 import com.github.kklisura.cdt.protocol.support.annotations.Experimental;
+import com.github.kklisura.cdt.protocol.types.page.BackForwardCacheNotRestoredExplanation;
+import java.util.List;
 
 /**
  * Fired for failed bfcache history navigations if BackForwardCache feature is enabled. Do not
@@ -34,6 +36,8 @@ public class BackForwardCacheNotUsed {
   private String loaderId;
 
   private String frameId;
+
+  private List<BackForwardCacheNotRestoredExplanation> notRestoredExplanations;
 
   /** The loader id for the associated navgation. */
   public String getLoaderId() {
@@ -53,5 +57,16 @@ public class BackForwardCacheNotUsed {
   /** The frame id of the associated frame. */
   public void setFrameId(String frameId) {
     this.frameId = frameId;
+  }
+
+  /** Array of reasons why the page could not be cached. This must not be empty. */
+  public List<BackForwardCacheNotRestoredExplanation> getNotRestoredExplanations() {
+    return notRestoredExplanations;
+  }
+
+  /** Array of reasons why the page could not be cached. This must not be empty. */
+  public void setNotRestoredExplanations(
+      List<BackForwardCacheNotRestoredExplanation> notRestoredExplanations) {
+    this.notRestoredExplanations = notRestoredExplanations;
   }
 }

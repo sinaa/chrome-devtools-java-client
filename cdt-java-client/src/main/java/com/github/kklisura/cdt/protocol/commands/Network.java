@@ -433,17 +433,6 @@ public interface Network {
   void setCookies(@ParamName("cookies") List<CookieParam> cookies);
 
   /**
-   * For testing.
-   *
-   * @param maxTotalSize Maximum total buffer size.
-   * @param maxResourceSize Maximum per-resource size.
-   */
-  @Experimental
-  void setDataSizeLimitsForTest(
-      @ParamName("maxTotalSize") Integer maxTotalSize,
-      @ParamName("maxResourceSize") Integer maxResourceSize);
-
-  /**
    * Specifies whether to always send extra HTTP headers with the requests from this page.
    *
    * @param headers Map with extra HTTP headers.

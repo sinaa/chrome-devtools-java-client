@@ -34,6 +34,7 @@ import com.github.kklisura.cdt.protocol.support.types.EventHandler;
 import com.github.kklisura.cdt.protocol.support.types.EventListener;
 import com.github.kklisura.cdt.protocol.types.css.BackgroundColors;
 import com.github.kklisura.cdt.protocol.types.css.CSSComputedStyleProperty;
+import com.github.kklisura.cdt.protocol.types.css.CSSContainerQuery;
 import com.github.kklisura.cdt.protocol.types.css.CSSMedia;
 import com.github.kklisura.cdt.protocol.types.css.CSSRule;
 import com.github.kklisura.cdt.protocol.types.css.CSSStyle;
@@ -215,6 +216,20 @@ public interface CSS {
    */
   @Returns("media")
   CSSMedia setMediaText(
+      @ParamName("styleSheetId") String styleSheetId,
+      @ParamName("range") SourceRange range,
+      @ParamName("text") String text);
+
+  /**
+   * Modifies the expression of a container query.
+   *
+   * @param styleSheetId
+   * @param range
+   * @param text
+   */
+  @Experimental
+  @Returns("containerQuery")
+  CSSContainerQuery setContainerQueryText(
       @ParamName("styleSheetId") String styleSheetId,
       @ParamName("range") SourceRange range,
       @ParamName("text") String text);

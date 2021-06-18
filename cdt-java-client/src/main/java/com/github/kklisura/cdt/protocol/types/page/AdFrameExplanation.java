@@ -22,12 +22,11 @@ package com.github.kklisura.cdt.protocol.types.page;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-/** Image compression format (defaults to png). */
-public enum CaptureScreenshotFormat {
-  @JsonProperty("jpeg")
-  JPEG,
-  @JsonProperty("png")
-  PNG,
-  @JsonProperty("webp")
-  WEBP
+public enum AdFrameExplanation {
+  @JsonProperty("ParentIsAd")
+  PARENT_IS_AD,
+  @JsonProperty("CreatedByAdScript")
+  CREATED_BY_AD_SCRIPT,
+  @JsonProperty("MatchedBlockingRule")
+  MATCHED_BLOCKING_RULE
 }
