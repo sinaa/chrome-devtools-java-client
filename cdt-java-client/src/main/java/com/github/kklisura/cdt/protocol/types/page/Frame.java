@@ -47,13 +47,15 @@ public class Frame {
 
   @Experimental @Optional private String unreachableUrl;
 
-  @Experimental @Optional private AdFrameType adFrameType;
+  @Experimental @Optional private AdFrameStatus adFrameStatus;
 
   @Experimental private SecureContextType secureContextType;
 
   @Experimental private CrossOriginIsolatedContextType crossOriginIsolatedContextType;
 
   @Experimental private List<GatedAPIFeatures> gatedAPIFeatures;
+
+  @Experimental @Optional private List<OriginTrial> originTrials;
 
   /** Frame unique identifier. */
   public String getId() {
@@ -169,14 +171,14 @@ public class Frame {
     this.unreachableUrl = unreachableUrl;
   }
 
-  /** Indicates whether this frame was tagged as an ad. */
-  public AdFrameType getAdFrameType() {
-    return adFrameType;
+  /** Indicates whether this frame was tagged as an ad and why. */
+  public AdFrameStatus getAdFrameStatus() {
+    return adFrameStatus;
   }
 
-  /** Indicates whether this frame was tagged as an ad. */
-  public void setAdFrameType(AdFrameType adFrameType) {
-    this.adFrameType = adFrameType;
+  /** Indicates whether this frame was tagged as an ad and why. */
+  public void setAdFrameStatus(AdFrameStatus adFrameStatus) {
+    this.adFrameStatus = adFrameStatus;
   }
 
   /** Indicates whether the main document is a secure context and explains why that is the case. */
@@ -208,5 +210,15 @@ public class Frame {
   /** Indicated which gated APIs / features are available. */
   public void setGatedAPIFeatures(List<GatedAPIFeatures> gatedAPIFeatures) {
     this.gatedAPIFeatures = gatedAPIFeatures;
+  }
+
+  /** Frame document's origin trials with at least one token present. */
+  public List<OriginTrial> getOriginTrials() {
+    return originTrials;
+  }
+
+  /** Frame document's origin trials with at least one token present. */
+  public void setOriginTrials(List<OriginTrial> originTrials) {
+    this.originTrials = originTrials;
   }
 }
